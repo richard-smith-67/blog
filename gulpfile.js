@@ -20,8 +20,15 @@ gulp.task('styles', function() {
 
 });
 
+gulp.task('watch:js', function(){
+   gulp.watch('js/*.*' ['js'], function(event){
+       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+   });
+
+});
+
 //Runs js and styles tasks
-gulp.task('build', ['js','styles'], function() {
+gulp.task('dev', ['styles', 'js', 'watch:js'], function() {
 
 
 });

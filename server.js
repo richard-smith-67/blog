@@ -7,6 +7,7 @@ var app = express();
 app.use(bodyParser.json());
 
 app.use('/assets', express.static('assets'));
+app.use('/partials', express.static('partials'));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/layout.html')
