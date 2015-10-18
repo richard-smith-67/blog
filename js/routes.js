@@ -6,7 +6,7 @@
     angular.module('app')
            .config(function($stateProvider, $urlRouterProvider){
 
-                $urlRouterProvider.otherwise('/about');
+                $urlRouterProvider.otherwise('/login');
 
                 $stateProvider
                     .state('about', {
@@ -18,7 +18,7 @@
 
                     });
 
-                $stateProvider
+                    $stateProvider
                     .state('posts', {
 
                         url:'/posts',
@@ -27,6 +27,25 @@
                         controllerAs: 'p'
 
                     });
+
+                    $stateProvider
+                    .state('login', {
+
+                        url:'/login',
+                        templateUrl:'partials/login.html',
+                        controller: LoginCtrl,
+                        controllerAs: 'login'
+
+                    });
+
+                function LoginCtrl(){
+                    var vm = this;
+                    vm.submit = submit;
+
+                    function submit(){
+                        console.log(vm.user.email + ' ' + vm.user.password);
+                    }
+                }
 
                 function AboutCtrl(){
                     var vm = this;
